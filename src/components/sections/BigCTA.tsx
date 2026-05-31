@@ -17,6 +17,16 @@ export default function BigCTA() {
           {/* Decorative shapes */}
           <div style={{ position: "absolute", top: -100, right: -100, width: 380, height: 380, borderRadius: "50%", background: "rgba(255,143,122,0.35)", filter: "blur(40px)" }}></div>
           <div style={{ position: "absolute", bottom: -80, left: -60, width: 280, height: 280, borderRadius: "50%", background: "rgba(255,255,255,0.1)", filter: "blur(40px)" }}></div>
+          
+          <div style={{ position: "absolute", top: 40, right: "20%", opacity: 0.4 }} className="animate-float">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/shapes/dots-2.png" alt="dots" style={{ width: 100, height: "auto" }} />
+          </div>
+          <div style={{ position: "absolute", bottom: 40, left: "10%", opacity: 0.5 }} className="animate-float-soft">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/shapes/star-yellow.png" alt="star" style={{ width: 60, height: "auto" }} />
+          </div>
+
           <div style={{ position: "absolute", top: "50%", right: "15%", transform: "translateY(-50%)", fontSize: 220, opacity: 0.08, fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 1 }} className="hidden lg:block">띵동!</div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-[40px] items-center">

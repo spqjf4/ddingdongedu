@@ -19,14 +19,17 @@ export default function Hero() {
       <div style={{ position: "absolute", top: 200, right: -120, width: 460, height: 460, background: "rgba(79,124,255,0.28)", filter: "blur(80px)", borderRadius: "50%" }} />
 
       {/* Floating decorative shapes */}
-      <div style={{ position: "absolute", top: 180, right: "12%" }} className="animate-float">
-        <div style={{ width: 56, height: 56, borderRadius: "50%", background: "var(--coral)", opacity: 0.25 }} />
+      <div style={{ position: "absolute", top: 140, right: "10%", zIndex: 1 }} className="animate-float">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/assets/shapes/star-yellow.png" alt="star" style={{ width: 80, height: "auto", opacity: 0.8 }} />
       </div>
-      <div style={{ position: "absolute", top: 320, left: "8%", animationDelay: "1s" }} className="animate-float-soft">
-        <div style={{ width: 24, height: 24, borderRadius: "50%", background: "var(--blue)", opacity: 0.35 }} />
+      <div style={{ position: "absolute", top: 320, left: "6%", animationDelay: "1s", zIndex: 1 }} className="animate-float-soft">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/assets/shapes/dots-1.png" alt="dots" style={{ width: 60, height: "auto", opacity: 0.6 }} />
       </div>
-      <div style={{ position: "absolute", bottom: 200, right: "8%" }} className="animate-float-soft">
-        <div style={{ width: 18, height: 18, borderRadius: "50%", background: "var(--coral)", opacity: 0.4 }} />
+      <div style={{ position: "absolute", bottom: 180, right: "6%", zIndex: 1 }} className="animate-float-soft">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/assets/shapes/star-blue.png" alt="star" style={{ width: 50, height: "auto", opacity: 0.7 }} />
       </div>
 
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
