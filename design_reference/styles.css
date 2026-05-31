@@ -1,0 +1,255 @@
+/* === 띵동 어린이체육교실 — base styles === */
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+:root {
+  /* Brand palette (logo manual) */
+  --coral: #ff8f7a;
+  --coral-soft: #ffd9d0;
+  --coral-bg: #fff3ef;
+  --blue: #4f7cff;
+  --blue-dark: #3a64e6;
+  --blue-soft: #c8d5ff;
+  --blue-bg: #eef2ff;
+  --ink: #32435c;
+  --ink-2: #4a5c78;
+  --ink-3: #8390a8;
+  --ink-4: #c5ccd9;
+  --line: rgba(50, 67, 92, 0.08);
+  --line-2: rgba(50, 67, 92, 0.14);
+  --paper: #fafbfd;
+  --paper-2: #f3f5fa;
+  --white: #ffffff;
+  --yellow: #ffd964;
+
+  --container: 1240px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-pill: 9999px;
+
+  --shadow-sm: 0 2px 12px rgba(50, 67, 92, 0.06);
+  --shadow-md: 0 8px 28px rgba(50, 67, 92, 0.08);
+  --shadow-lg: 0 16px 48px rgba(50, 67, 92, 0.12);
+  --shadow-coral: 0 14px 32px -8px rgba(255, 143, 122, 0.55);
+  --shadow-blue: 0 14px 32px -8px rgba(79, 124, 255, 0.45);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard', ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo",
+    "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: 'ss01', 'ss02';
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+body { overflow-x: hidden; }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* Container */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section base */
+section { position: relative; }
+.section { padding: 120px 0; }
+.section-sm { padding: 80px 0; }
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--blue);
+  border-radius: 2px;
+}
+
+/* Section head */
+.section-head {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.section-title {
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+.section-title .accent-coral { color: var(--coral); }
+.section-title .accent-blue { color: var(--blue); }
+.section-sub {
+  font-size: 18px;
+  color: var(--ink-2);
+  font-weight: 500;
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  transition: all 0.3s var(--ease);
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: var(--shadow-blue);
+}
+.btn-primary:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px -8px rgba(79, 124, 255, 0.55);
+}
+.btn-coral {
+  background: var(--coral);
+  color: var(--white);
+  box-shadow: var(--shadow-coral);
+}
+.btn-coral:hover {
+  background: #ff7e66;
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: var(--white);
+  color: var(--ink);
+  border: 1.5px solid var(--line-2);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.btn-dark {
+  background: var(--ink);
+  color: var(--white);
+}
+.btn-dark:hover { background: #233247; transform: translateY(-2px); }
+
+/* Card */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  transition: all 0.4s var(--ease);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+/* Pill / chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.chip-coral { background: var(--coral-bg); color: var(--coral); }
+.chip-blue { background: var(--blue-bg); color: var(--blue); }
+.chip-dark { background: rgba(50,67,92,0.08); color: var(--ink); }
+
+/* Decorative blobs (background halos) */
+.halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--ink-4); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.03); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.fade-up { animation: fade-up 0.8s var(--ease) backwards; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .section { padding: 80px 0; }
+  .section-head { margin-bottom: 40px; }
+  .container { padding: 0 20px; }
+}

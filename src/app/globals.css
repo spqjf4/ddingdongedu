@@ -1,0 +1,133 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard", ui-sans-serif, system-ui, -apple-system,
+    "Apple SD Gothic Neo", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  /* Colors */
+  --coral: #ff8f7a;
+  --coral-soft: #ffd9d0;
+  --coral-bg: #fff3ef;
+  --blue: #4f7cff;
+  --blue-dark: #3a64e6;
+  --blue-soft: #c8d5ff;
+  --blue-bg: #eef2ff;
+  --ink: #32435c;
+  --ink-2: #4a5c78;
+  --ink-3: #8390a8;
+  --ink-4: #c5ccd9;
+  --line: rgba(50, 67, 92, 0.08);
+  --line-2: rgba(50, 67, 92, 0.14);
+  --paper: #fafbfd;
+  --paper-2: #f3f5fa;
+  --white: #ffffff;
+  --yellow: #ffd964;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 12px rgba(50, 67, 92, 0.06);
+  --shadow-md: 0 8px 28px rgba(50, 67, 92, 0.08);
+  --shadow-lg: 0 16px 48px rgba(50, 67, 92, 0.12);
+  --shadow-coral: 0 14px 32px -8px rgba(255, 143, 122, 0.55);
+  --shadow-blue: 0 14px 32px -8px rgba(79, 124, 255, 0.45);
+}
+
+body {
+  color: var(--ink);
+  background: var(--white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* Base Elements */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 0;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.section {
+  padding: 120px 0;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 0;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-float { animation: float 7s ease-in-out infinite; }
+.animate-float-soft { animation: float-soft 5s ease-in-out infinite; }
+.animate-bounce-soft { animation: bounce-soft 1.8s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+.animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-marquee { animation: marquee 36s linear infinite; }

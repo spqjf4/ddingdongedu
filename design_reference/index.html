@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>띵동 어린이체육교실 — 아이의 첫 운동친구</title>
+  <meta name="description" content="유아·아동 체육 전문 교육기관. 안전하고 즐거운 환경에서 마음껏 뛰놀며 자라요. 무료 체험 수업 신청." />
+
+  <!-- Pretendard via CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Responsive tweaks specific to this page */
+    @media (max-width: 1024px) {
+      .desktop-nav { display: none !important; }
+      .hero-grid { grid-template-columns: 1fr !important; }
+      .hero-visual { height: 420px !important; }
+      .about-grid { grid-template-columns: 1fr !important; }
+      .programs-grid { grid-template-columns: 1fr !important; }
+      .why-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .teachers-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .facility-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 40px !important; }
+      .process-line { display: none !important; }
+      .reviews-grid { grid-template-columns: 1fr !important; }
+      .contact-grid { grid-template-columns: 1fr !important; }
+      .bigcta-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 640px) {
+      .why-grid { grid-template-columns: 1fr !important; }
+      .teachers-grid { grid-template-columns: 1fr !important; }
+      .facility-grid { grid-template-columns: 1fr !important; grid-auto-rows: 200px !important; }
+      .facility-grid > *[style*="span 2"] { grid-column: span 1 !important; grid-row: span 1 !important; }
+      .header-cta span, .header-cta { font-size: 12px !important; }
+      .process-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Hide quick menu text wrapper by default — handled via JS hover */
+    .quick-item:hover { width: 140px !important; padding-left: 18px !important; }
+    .quick-item:hover > span:first-child { opacity: 1 !important; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- App scripts -->
+  <script type="text/babel" data-presets="react" src="app.jsx"></script>
+  <script type="text/babel" data-presets="react" src="sections-a.jsx"></script>
+  <script type="text/babel" data-presets="react" src="sections-b.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    function App() {
+      const [menuOpen, setMenuOpen] = React.useState(false);
+      return (
+        <>
+          <Header onMenuOpen={() => setMenuOpen(true)} />
+          <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
+          <main>
+            <Hero />
+            <PartnerMarquee />
+            <About />
+            <Programs />
+            <WhyUs />
+            <Instructors />
+            <Facility />
+            <Process />
+            <Reviews />
+            <BigCTA />
+            <Contact />
+          </main>
+          <Footer />
+          <QuickMenu />
+        </>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
