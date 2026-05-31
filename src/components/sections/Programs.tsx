@@ -132,8 +132,8 @@ export default function Programs() {
                   ))}
                 </ul>
 
-                <button
-                  onClick={() => scrollTo("contact")}
+                <a
+                  href="tel:010-3046-5546"
                   style={{
                     display: "flex", alignItems: "center", justifyContent: "space-between",
                     padding: "16px 22px", borderRadius: 16,
@@ -145,9 +145,9 @@ export default function Programs() {
                   onMouseEnter={(e) => { e.currentTarget.style.background = p.accent; e.currentTarget.style.color = "#fff"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = "var(--paper)"; e.currentTarget.style.color = "var(--ink)"; }}
                 >
-                  자세히 보기 & 상담 신청
+                  자세히 보기 & 전화 상담
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </button>
+                </a>
               </div>
             </div>
           ))}

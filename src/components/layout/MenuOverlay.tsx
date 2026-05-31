@@ -107,7 +107,7 @@ export default function MenuOverlay({ open, onClose }: { open: boolean; onClose:
         <div style={{ padding: "24px 32px", background: "var(--paper)", borderTop: "1px solid var(--line)" }}>
           <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.16em", color: "var(--blue)", marginBottom: 14 }}>QUICK CONTACT</div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-            <a href="tel:02-1234-5678" style={{ 
+            <a href="tel:010-3046-5546" style={{ 
               display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
               padding: "14px 18px", fontSize: 14, fontWeight: 800, borderRadius: "var(--radius-pill)",
               background: "var(--coral)", color: "var(--white)", transition: "all 0.2s" 

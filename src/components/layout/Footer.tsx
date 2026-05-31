@@ -45,7 +45,7 @@ export default function Footer() {
               { h: "띵동 안내", items: ["브랜드 스토리", "교육 철학", "오시는 길", "제휴 문의"] },
               { h: "프로그램", items: ["방문 유아체육", "정규 체육교실", "특별활동·캠프", "1:1 코칭"] },
               { h: "소통 채널", items: ["공지사항", "학부모 알림장", "갤러리", "자주 묻는 질문"] },
-              { h: "고객 지원", items: ["상담 신청", "개인정보처리방침", "이용약관", "저작권 정책"] },
+              { h: "고객 지원", items: ["개인정보처리방침", "이용약관", "저작권 정책"] },
             ].map((col) => (
               <div key={col.h}>
                 <div style={{ fontWeight: 800, color: "var(--white)", fontSize: 14, marginBottom: 18, letterSpacing: "-0.01em" }}>
@@ -75,8 +75,8 @@ export default function Footer() {
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 20px", marginBottom: 12 }}>
             <span><strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 700 }}>주소</strong> 서울특별시 강남구 띵동로 7길 14, 2층</span>
-            <span><strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 700 }}>전화</strong> 02-1234-5678</span>
-            <span><strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 700 }}>이메일</strong> hello@ddingdong.kr</span>
+            <span><strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 700 }}>전화</strong> 010-3046-5546</span>
+            <span><strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 700 }}>이메일</strong> spqjf4@naver.com</span>
             <span><strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 700 }}>운영시간</strong> 평일 09:00 - 18:00</span>
           </div>
           <div style={{

@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: process.env.NAVER_USER,
-      to: "titania32@naver.com",
+      to: "spqjf4@naver.com",
       subject: `[문의접수] ${name}님의 상담 신청입니다.`,
       text: `
         이름: ${name}

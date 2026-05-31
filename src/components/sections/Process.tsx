@@ -1,6 +1,6 @@
 export default function Process() {
   const steps = [
-    { n: "01", title: "상담 신청", desc: "전화·카카오톡·문의 폼으로 편하게 연락주세요. 24시간 이내 답변드려요.", accent: "var(--coral)" },
+    { n: "01", title: "상담 신청", desc: "전화·카카오톡으로 편하게 연락주세요. 친절하게 답변드릴게요.", accent: "var(--coral)" },
     { n: "02", title: "방문 미팅", desc: "센터 또는 기관에 직접 방문해 환경을 둘러보고, 아이의 상태와 목표를 상담해요.", accent: "var(--blue)" },
     { n: "03", title: "커리큘럼 협의", desc: "아이의 연령·체력·관심사에 맞춰 8주~24주 맞춤 커리큘럼을 함께 설계해요.", accent: "#1ea974" },
     { n: "04", title: "수업 시작", desc: "첫 수업부터 마지막 수업까지, 매일 알림장과 영상으로 아이의 성장을 함께해요.", accent: "#e8a800" },
