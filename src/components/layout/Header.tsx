@@ -61,7 +61,7 @@ export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
                 onClick={() => scrollTo(n.id)}
                 style={{
                   padding: "10px 16px", borderRadius: "var(--radius-pill)",
-                  fontSize: 15, fontWeight: 700, color: "var(--ink)",
+                  fontSize: 15, fontWeight: 700,
                   background: activeMenu === n.id ? "var(--blue-bg)" : "transparent",
                   color: activeMenu === n.id ? "var(--blue)" : "var(--ink)",
                   transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -83,44 +83,53 @@ export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
                 )}
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu Wrapper with Bridge */}
               {n.children && (
                 <div
                   style={{
                     position: "absolute", top: "100%", left: "50%",
-                    transform: `translateX(-50%) translateY(${activeMenu === n.id ? "8px" : "16px"})`,
+                    transform: "translateX(-50%)",
+                    paddingTop: 12, // The invisible bridge
                     opacity: activeMenu === n.id ? 1 : 0,
                     pointerEvents: activeMenu === n.id ? "auto" : "none",
-                    background: "#fff",
-                    borderRadius: 16,
-                    padding: "10px",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
-                    minWidth: 160,
                     transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-                    border: "1px solid var(--line-2)",
-                    display: "flex", flexDirection: "column", gap: 2,
                     zIndex: 60
                   }}
                 >
-                  {n.children.map((child) => (
-                    <button
-                      key={child.label}
-                      onClick={() => { scrollTo(child.id); setActiveMenu(null); }}
-                      style={{
-                        padding: "10px 14px",
-                        textAlign: "left",
-                        fontSize: 14,
-                        fontWeight: 700,
-                        color: "var(--ink-2)",
-                        borderRadius: 10,
-                        transition: "all 0.2s"
-                      }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = "var(--blue-bg)"; e.currentTarget.style.color = "var(--blue)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--ink-2)"; }}
-                    >
-                      {child.label}
-                    </button>
-                  ))}
+                  <div
+                    style={{
+                      background: "#fff",
+                      borderRadius: 16,
+                      padding: "10px",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+                      minWidth: 160,
+                      border: "1px solid var(--line-2)",
+                      display: "flex", flexDirection: "column", gap: 2,
+                      transform: `translateY(${activeMenu === n.id ? "0px" : "10px"})`,
+                      transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+                    }}
+                  >
+                    {n.children.map((child) => (
+                      <button
+                        key={child.label}
+                        onClick={() => { scrollTo(child.id); setActiveMenu(null); }}
+                        style={{
+                          padding: "10px 14px",
+                          textAlign: "left",
+                          fontSize: 14,
+                          fontWeight: 700,
+                          color: "var(--ink-2)",
+                          borderRadius: 10,
+                          transition: "all 0.2s",
+                          whiteSpace: "nowrap"
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = "var(--blue-bg)"; e.currentTarget.style.color = "var(--blue)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--ink-2)"; }}
+                      >
+                        {child.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
