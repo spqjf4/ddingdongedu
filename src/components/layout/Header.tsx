@@ -5,6 +5,7 @@ import { NAV, scrollTo } from "@/lib/constants";
 
 export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
   const [scrolled, setScrolled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 12);
@@ -42,7 +43,6 @@ export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
             alt="띵동 어린이체육교실"
             className="h-[36px] sm:h-[40px] lg:h-[44px]"
             style={{ 
-              height: scrolled ? undefined : undefined, // Handled by className now for better responsiveness
               transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
               ...(scrolled ? { height: '34px' } : {}) 
             }}
@@ -51,19 +51,79 @@ export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
 
         <nav className="hidden lg:flex" style={{ alignItems: "center", gap: 4 }}>
           {NAV.map((n) => (
-            <button
-              key={n.id}
-              onClick={() => scrollTo(n.id)}
-              style={{
-                padding: "10px 16px", borderRadius: "var(--radius-pill)",
-                fontSize: 15, fontWeight: 700, color: "var(--ink)",
-                transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "var(--blue-bg)"; e.currentTarget.style.color = "var(--blue)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--ink)"; }}
+            <div 
+              key={n.id} 
+              style={{ position: "relative" }}
+              onMouseEnter={() => setActiveMenu(n.id)}
+              onMouseLeave={() => setActiveMenu(null)}
             >
-              {n.label}
-            </button>
+              <button
+                onClick={() => scrollTo(n.id)}
+                style={{
+                  padding: "10px 16px", borderRadius: "var(--radius-pill)",
+                  fontSize: 15, fontWeight: 700, color: "var(--ink)",
+                  background: activeMenu === n.id ? "var(--blue-bg)" : "transparent",
+                  color: activeMenu === n.id ? "var(--blue)" : "var(--ink)",
+                  transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                  display: "flex", alignItems: "center", gap: 4
+                }}
+              >
+                {n.label}
+                {n.children && (
+                  <svg 
+                    width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ 
+                      transform: activeMenu === n.id ? "rotate(180deg)" : "rotate(0deg)",
+                      transition: "transform 0.2s",
+                      opacity: 0.5
+                    }}
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                )}
+              </button>
+
+              {/* Dropdown Menu */}
+              {n.children && (
+                <div
+                  style={{
+                    position: "absolute", top: "100%", left: "50%",
+                    transform: `translateX(-50%) translateY(${activeMenu === n.id ? "8px" : "16px"})`,
+                    opacity: activeMenu === n.id ? 1 : 0,
+                    pointerEvents: activeMenu === n.id ? "auto" : "none",
+                    background: "#fff",
+                    borderRadius: 16,
+                    padding: "10px",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+                    minWidth: 160,
+                    transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+                    border: "1px solid var(--line-2)",
+                    display: "flex", flexDirection: "column", gap: 2,
+                    zIndex: 60
+                  }}
+                >
+                  {n.children.map((child) => (
+                    <button
+                      key={child.label}
+                      onClick={() => { scrollTo(child.id); setActiveMenu(null); }}
+                      style={{
+                        padding: "10px 14px",
+                        textAlign: "left",
+                        fontSize: 14,
+                        fontWeight: 700,
+                        color: "var(--ink-2)",
+                        borderRadius: 10,
+                        transition: "all 0.2s"
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "var(--blue-bg)"; e.currentTarget.style.color = "var(--blue)"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--ink-2)"; }}
+                    >
+                      {child.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
