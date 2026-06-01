@@ -124,7 +124,7 @@ export default function Programs() {
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "flex", flexDirection: "column", gap: 8 }}>
                   {p.points.map((pt) => (
                     <li key={pt} style={{ fontSize: 14, color: "var(--ink-2)", display: "flex", alignItems: "center", gap: 10, fontWeight: 600 }}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={p.accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={p.accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                         <polyline points="20 6 9 17 4 12"/>
                       </svg>
                       {pt}

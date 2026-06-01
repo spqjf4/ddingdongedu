@@ -232,7 +232,7 @@ export default function Hero() {
                 </div>
                 <div style={{ textAlign: "left" }}>
                   <div style={{ fontSize: 10, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>PARENTS</div>
-                  <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>만족도 98%</div>
+                  <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>만족도 100%</div>
                 </div>
               </div>
 

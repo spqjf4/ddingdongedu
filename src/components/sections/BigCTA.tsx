@@ -18,9 +18,9 @@ export default function BigCTA() {
           <div style={{ position: "absolute", top: -100, right: -100, width: 380, height: 380, borderRadius: "50%", background: "rgba(255,143,122,0.35)", filter: "blur(40px)" }}></div>
           <div style={{ position: "absolute", bottom: -80, left: -60, width: 280, height: 280, borderRadius: "50%", background: "rgba(255,255,255,0.1)", filter: "blur(40px)" }}></div>
           
-          <div style={{ position: "absolute", top: 40, right: "20%", opacity: 0.4 }} className="animate-float">
+          <div style={{ position: "absolute", bottom: 20, right: "5%", opacity: 0.8 }} className="animate-float">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/shapes/dots-2.png" alt="dots" style={{ width: 100, height: "auto" }} />
+            <img src="/assets/shapes/dots-2.png" alt="dots" style={{ width: 200, height: "auto" }} />
           </div>
           <div style={{ position: "absolute", bottom: 40, left: "10%", opacity: 0.5 }} className="animate-float-soft">
             {/* eslint-disable-next-line @next/next/no-img-element */}

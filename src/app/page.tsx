@@ -3,7 +3,6 @@ import Footer from "@/components/layout/Footer";
 import QuickMenu from "@/components/layout/QuickMenu";
 
 import Hero from "@/components/sections/Hero";
-import PartnerMarquee from "@/components/sections/PartnerMarquee";
 import About from "@/components/sections/About";
 import Programs from "@/components/sections/Programs";
 import WhyUs from "@/components/sections/WhyUs";
@@ -18,7 +17,6 @@ export default function Home() {
   return (
     <LayoutShell>
       <Hero />
-      <PartnerMarquee />
       <About />
       <Programs />
       <WhyUs />

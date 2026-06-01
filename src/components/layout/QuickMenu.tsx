@@ -14,18 +14,20 @@ export default function QuickMenu() {
 
   const items = [
     {
-      label: "카카오톡",
-      bg: "#FEE500",
-      color: "#3C1E1E",
-      href: "https://pf.kakao.com",
+      label: "인스타그램",
+      bg: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+      color: "#fff",
+      href: "https://instagram.com",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 3C6.48 3 2 6.58 2 11c0 2.83 1.85 5.31 4.63 6.74l-1.18 4.32c-.1.36.29.65.6.45l5.16-3.42c.26.01.52.02.79.02 5.52 0 10-3.58 10-8S17.52 3 12 3z"/>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
       ),
     },
     {
-      label: "네이버",
+      label: "네이버 블로그",
       bg: "#03C75A",
       color: "#fff",
       href: "https://blog.naver.com",
@@ -89,7 +91,7 @@ export default function QuickMenu() {
             fontSize: 14,
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.width = "140px";
+            e.currentTarget.style.width = "170px";
             e.currentTarget.style.paddingLeft = "18px";
             const span = e.currentTarget.querySelector(".label-span") as HTMLElement;
             if (span) span.style.opacity = "1";

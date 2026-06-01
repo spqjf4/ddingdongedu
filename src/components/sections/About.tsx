@@ -10,7 +10,7 @@ export default function About() {
       desc: "체계적인 안전 매뉴얼과 응급 대응 시스템으로 아이들이 마음껏 뛰어놀 수 있는 환경을 만들어요.",
       bg: "var(--coral-bg)", accent: "var(--coral)",
       icon: (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           <path d="m9 12 2 2 4-4"/>
         </svg>
@@ -22,7 +22,7 @@ export default function About() {
       desc: "체육교육 전공 강사진이 연령별 발달 단계를 고려한 커리큘럼으로 아이의 성장을 도와드려요.",
       bg: "var(--blue-bg)", accent: "var(--blue)",
       icon: (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
           <path d="M6 12v5c3 3 9 3 12 0v-5"/>
         </svg>
@@ -34,7 +34,7 @@ export default function About() {
       desc: "놀이를 통해 자연스럽게 운동 습관을 형성하고, 친구들과 함께 웃으며 자라도록 도와요.",
       bg: "#fffbe8", accent: "#e8a800",
       icon: (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10"/>
           <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
           <line x1="9" y1="9" x2="9.01" y2="9"/>
@@ -48,7 +48,7 @@ export default function About() {
       desc: "학부모님께 매일 알림장과 영상을 공유하며, 아이의 성장 순간을 함께 나눠요.",
       bg: "#eafaf2", accent: "#1ea974",
       icon: (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
           <circle cx="9" cy="7" r="4"/>
           <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
