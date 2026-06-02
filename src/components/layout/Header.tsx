@@ -33,8 +33,13 @@ export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
         }}
       >
         <a
-          href="#top"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          href="/"
+          onClick={(e) => { 
+            if (window.location.pathname === "/") {
+              e.preventDefault(); 
+              window.scrollTo({ top: 0, behavior: "smooth" }); 
+            }
+          }}
           style={{ display: "flex", alignItems: "center" }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -58,7 +63,7 @@ export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
               onMouseLeave={() => setActiveMenu(null)}
             >
               <button
-                onClick={() => scrollTo(n.id)}
+                onClick={() => scrollTo(n.id, (n as any).path)}
                 style={{
                   padding: "10px 16px", borderRadius: "var(--radius-pill)",
                   fontSize: 15, fontWeight: 700,
@@ -112,7 +117,7 @@ export default function Header({ onMenuOpen }: { onMenuOpen: () => void }) {
                     {n.children.map((child) => (
                       <button
                         key={child.label}
-                        onClick={() => { scrollTo(child.id); setActiveMenu(null); }}
+                        onClick={() => { scrollTo(child.id, (child as any).path); setActiveMenu(null); }}
                         style={{
                           padding: "10px 14px",
                           textAlign: "left",

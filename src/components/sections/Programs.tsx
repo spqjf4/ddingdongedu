@@ -1,158 +1,95 @@
-"use client";
-
-import { scrollTo } from "@/lib/constants";
+import React from 'react';
 
 export default function Programs() {
-  const programs = [
-    {
-      tag: "인기",
-      title: "방문 유아체육",
-      sub: "유치원·어린이집 정규 출강",
-      desc: "검증된 강사가 직접 방문해 진행하는 주 1~2회 정규 체육 수업. 매트, 후프, 콘 등 안전한 교구로 진행해요.",
-      points: ["주 1~2회 정규 수업", "연령별 맞춤 커리큘럼", "전문 강사 1:1 매칭"],
-      age: "만 3~7세",
-      accent: "var(--coral)",
-      bg: "linear-gradient(135deg, #ffd9d0 0%, #ffb4a4 100%)",
-    },
-    {
-      tag: "NEW",
-      title: "정규 체육교실",
-      sub: "센터 그룹 수업",
-      desc: "띵동 센터에서 진행하는 소그룹 체육 수업. 또래 친구들과 함께 운동 자신감과 사회성을 함께 키워요.",
-      points: ["소그룹 8명 이하", "맞춤형 체력 진단", "월별 성장 리포트"],
-      age: "만 5~10세",
-      accent: "var(--blue)",
-      bg: "linear-gradient(135deg, #c8d5ff 0%, #95acff 100%)",
-    },
-    {
-      tag: "이벤트",
-      title: "특별활동·운동회",
-      sub: "체육 캠프 & 발표회",
-      desc: "계절별 체육 캠프, 미니 운동회, 학기말 발표회 등 특별한 추억을 만드는 이벤트 프로그램을 운영해요.",
-      points: ["봄·가을 체육 캠프", "미니 운동회 기획", "발표회·시연회"],
-      age: "전 연령",
-      accent: "#1ea974",
-      bg: "linear-gradient(135deg, #c5f0d8 0%, #7fd9a8 100%)",
-    },
-    {
-      tag: "맞춤",
-      title: "1:1 코칭",
-      sub: "개별 체력 관리",
-      desc: "내 아이의 체력과 발달 단계에 딱 맞춘 1:1 맞춤 코칭. 자세 교정, 운동 능력 향상까지 책임져요.",
-      points: ["주 1~3회 자유 선택", "자세 분석·교정", "학부모 영상 리포트"],
-      age: "만 4~13세",
-      accent: "#e8a800",
-      bg: "linear-gradient(135deg, #fff0b8 0%, #ffd964 100%)",
-    },
-  ];
-
   return (
-    <section id="programs" className="section" style={{ background: "var(--paper)", position: "relative" }}>
-      <div className="container">
-        <div style={{ alignItems: "center", textAlign: "center", marginBottom: 64 }}>
-          <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.12em", color: "var(--ink-3)", marginBottom: 16 }}>PROGRAMS</div>
-          <h2 style={{ fontSize: "clamp(34px, 4vw, 52px)", fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 1.15, margin: 0, color: "var(--ink)" }}>
-            우리 아이에게 딱 맞는 <span style={{ color: "var(--blue)" }}>체육 수업</span>을 찾아보세요
-          </h2>
-          <p style={{ fontSize: 18, lineHeight: 1.65, color: "var(--ink-2)", marginTop: 24, maxWidth: 640, marginInline: "auto" }}>
-            연령과 목적에 맞게 4가지 프로그램을 운영해요. 처음이라면 무료 체험부터 시작해보세요.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
-          {programs.map((p, i) => (
-            <div
-              key={p.title}
-              style={{
-                padding: 0,
-                overflow: "hidden",
-                border: "1px solid var(--line)",
-                background: "var(--white)",
-                display: "flex", flexDirection: "column",
-                borderRadius: 28,
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
-              className="hover:-translate-y-1 hover:shadow-lg"
-            >
-              {/* Image area */}
-              <div style={{
-                position: "relative",
-                height: 200,
-                background: p.bg,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                overflow: "hidden",
-              }}>
-                {/* Decorative shapes */}
-                <div style={{ position: "absolute", top: -40, right: -40, width: 160, height: 160, borderRadius: "50%", background: "rgba(255,255,255,0.18)" }}></div>
-                <div style={{ position: "absolute", bottom: -60, left: -30, width: 200, height: 200, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }}></div>
-
-                <span style={{
-                  position: "absolute", top: 20, left: 20,
-                  background: "var(--white)", color: p.accent,
-                  fontWeight: 800, fontSize: 12, letterSpacing: "0.05em",
-                  padding: "6px 14px", borderRadius: "var(--radius-pill)"
-                }}>{p.tag}</span>
-
-                <span style={{
-                  position: "absolute", top: 20, right: 20,
-                  padding: "6px 14px", borderRadius: "var(--radius-pill)",
-                  background: "rgba(50,67,92,0.85)", color: "var(--white)",
-                  fontWeight: 700, fontSize: 12,
-                }}>{p.age}</span>
-
-                {/* Big icon character placeholder */}
-                <div style={{
-                  fontSize: 80, fontWeight: 900, color: "rgba(255,255,255,0.9)",
-                  letterSpacing: "-0.04em", textShadow: "0 8px 16px rgba(50,67,92,0.15)",
-                }}>
-                  0{i + 1}
-                </div>
+    <>
+      {/* 1. 에어바운스 섹션 */}
+      <section id="programs-air" className="section relative overflow-hidden bg-white">
+        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-[var(--coral-bg)] rounded-full blur-[120px] opacity-50 -mr-[20vw] -mt-[10vw]"></div>
+        
+        <div className="container relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="w-full lg:w-1/2">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--coral-bg)] rounded-full mb-8">
+                <span className="w-2 h-2 bg-[var(--coral)] rounded-full animate-pulse"></span>
+                <span className="text-[var(--coral)] font-extrabold text-sm tracking-widest uppercase">01. Air Bounce</span>
               </div>
+              
+              <h2 className="text-4xl lg:text-6xl font-black text-[var(--ink)] leading-[1.1] mb-8 tracking-tighter">
+                상상력이 현실이 되는<br />
+                <span className="text-[var(--coral)]">구름 위 놀이터</span>
+              </h2>
+              
+              <p className="text-lg lg:text-xl text-[var(--ink-2)] font-medium leading-relaxed mb-10 break-keep">
+                국내 최대 규모의 다양한 에어바운스를 보유하고 있습니다. <br />
+                철저한 안전 점검과 매일 진행되는 소독으로 아이들이 마음껏 뛰놀 수 있는 가장 안전하고 즐거운 공간을 약속합니다.
+              </p>
 
-              {/* Content */}
-              <div style={{ padding: 32, flex: 1, display: "flex", flexDirection: "column" }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: p.accent, letterSpacing: "0.12em", marginBottom: 8 }}>
-                  {p.sub.toUpperCase()}
-                </div>
-                <h3 style={{ fontSize: 26, fontWeight: 900, letterSpacing: "-0.03em", margin: "0 0 12px", color: "var(--ink)" }}>
-                  {p.title}
-                </h3>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)", margin: "0 0 20px", flex: 1 }}>
-                  {p.desc}
-                </p>
-
-                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "flex", flexDirection: "column", gap: 8 }}>
-                  {p.points.map((pt) => (
-                    <li key={pt} style={{ fontSize: 14, color: "var(--ink-2)", display: "flex", alignItems: "center", gap: 10, fontWeight: 600 }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={p.accent} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                        <polyline points="20 6 9 17 4 12"/>
-                      </svg>
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="tel:010-3046-5546"
-                  style={{
-                    display: "flex", alignItems: "center", justifyContent: "space-between",
-                    padding: "16px 22px", borderRadius: 16,
-                    background: "var(--paper)", color: "var(--ink)",
-                    fontWeight: 800, fontSize: 14,
-                    transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                    width: "100%",
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = p.accent; e.currentTarget.style.color = "#fff"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = "var(--paper)"; e.currentTarget.style.color = "var(--ink)"; }}
-                >
-                  자세히 보기 & 전화 상담
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </a>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { t: "KC 인증 완료", d: "국가공인 안전 기준 통과", e: "✅" },
+                  { t: "프리미엄 소재", d: "무독성 친환경 원단 사용", e: "🛡️" },
+                  { t: "전문 요원 배치", d: "안전 사고 완벽 예방", e: "👮" },
+                  { t: "맞춤형 설치", d: "공간에 딱 맞는 구성", e: "📐" }
+                ].map((item, i) => (
+                  <div key={i} className="p-5 bg-[var(--paper)] rounded-2xl border border-[var(--line)] hover:border-[var(--coral)] transition-colors">
+                    <div className="text-2xl mb-2">{item.e}</div>
+                    <div className="text-[var(--ink)] font-black mb-1">{item.t}</div>
+                    <div className="text-[var(--ink-3)] text-xs font-bold">{item.d}</div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+
+            <div className="w-full lg:w-1/2 relative">
+              <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200" 
+                  alt="에어바운스" 
+                  className="w-full aspect-square object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[var(--yellow)] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* 2. 워터슬라이드 섹션 */}
+      <section id="programs-water" className="section bg-[var(--blue-bg)] relative overflow-hidden">
+        <div className="container relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 rounded-full mb-6">
+              <span className="text-[var(--blue)] font-extrabold text-sm tracking-widest uppercase">02. Water Slide</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-black text-[var(--ink)] leading-tight mb-6 tracking-tighter">
+              무더위를 날려버릴<br />
+              <span className="text-[var(--blue)]">띵동 워터파크</span>
+            </h2>
+            <p className="text-lg text-[var(--ink-2)] font-medium leading-relaxed">
+              여름 시즌 최고의 인기 프로그램! <br />
+              다양한 높이의 슬라이드와 대형 풀장으로 학교 운동장이나 아파트 단지가 시원한 수영장으로 변신합니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="group relative rounded-[40px] overflow-hidden shadow-xl">
+              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" alt="대형 풀장" className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-dark)]/80 to-transparent flex flex-col justify-end p-10 text-white">
+                <h3 className="text-2xl font-black mb-2">대형 풀장 & 슬라이드</h3>
+                <p className="text-white/80 font-medium">전 연령이 즐길 수 있는 다양한 사이즈의 물놀이 시설</p>
+              </div>
+            </div>
+            <div className="group relative rounded-[40px] overflow-hidden shadow-xl">
+              <img src="https://images.unsplash.com/photo-1560155016-bd4879ae8f21?auto=format&fit=crop&q=80&w=1000" alt="수질 관리" className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-dark)]/80 to-transparent flex flex-col justify-end p-10 text-white">
+                <h3 className="text-2xl font-black mb-2">철저한 수질 및 안전 관리</h3>
+                <p className="text-white/80 font-medium">매 시간 수질 체크와 라이프가드 상주로 안심 놀이 환경 조성</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

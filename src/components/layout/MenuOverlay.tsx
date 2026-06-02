@@ -5,8 +5,11 @@ import { NAV, scrollTo } from "@/lib/constants";
 
 export default function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
   useEffect(() => {
-    if (open) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
@@ -46,8 +49,10 @@ export default function MenuOverlay({ open, onClose }: { open: boolean; onClose:
           display: "flex", alignItems: "center", justifyContent: "space-between",
           padding: "24px 32px", borderBottom: "1px solid var(--line)",
         }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/logo-row.png" alt="띵동" style={{ height: 36 }} />
+          <a href="/" onClick={() => onClose()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/logo-row.png" alt="띵동" style={{ height: 36 }} />
+          </a>
           <button
             onClick={onClose}
             aria-label="메뉴 닫기"
@@ -65,41 +70,69 @@ export default function MenuOverlay({ open, onClose }: { open: boolean; onClose:
         </div>
 
         {/* Menu items */}
-        <div style={{ flex: 1, overflowY: "auto", padding: "32px 0" }}>
+        <div style={{ flex: 1, overflowY: "auto", padding: "10px 0" }}>
           {NAV.map((n, i) => (
-            <button
+            <div
               key={n.id}
-              onClick={() => { onClose(); setTimeout(() => scrollTo(n.id), 350); }}
               style={{
-                display: "flex", alignItems: "center", justifyContent: "space-between",
-                width: "100%", padding: "20px 32px", textAlign: "left",
-                borderBottom: i === NAV.length - 1 ? "none" : "1px solid var(--line)",
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--blue-bg)";
-                (e.currentTarget.querySelector(".menu-label") as HTMLElement).style.color = "var(--blue)";
-                (e.currentTarget.querySelector(".menu-arrow") as HTMLElement).style.transform = "translateX(6px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                (e.currentTarget.querySelector(".menu-label") as HTMLElement).style.color = "var(--ink)";
-                (e.currentTarget.querySelector(".menu-arrow") as HTMLElement).style.transform = "translateX(0)";
+                borderBottom: "1px solid var(--line)",
+                padding: "20px 0",
               }}
             >
-              <div>
-                <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.18em", color: "var(--coral)", marginBottom: 6 }}>
-                  {String(i+1).padStart(2,"0")} · {n.sub.toUpperCase()}
+              <button
+                onClick={() => { onClose(); setTimeout(() => scrollTo(n.id, (n as any).path), 350); }}
+                style={{
+                  display: "flex", alignItems: "center", justifyContent: "space-between",
+                  width: "100%", padding: "12px 32px", textAlign: "left",
+                }}
+              >
+                <div>
+                  <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.15em", color: "var(--coral)", marginBottom: 4 }}>
+                    {String(i+1).padStart(2,"0")} · {n.sub.toUpperCase()}
+                  </div>
+                  <div style={{ fontSize: 24, fontWeight: 900, color: "var(--ink)", letterSpacing: "-0.03em" }}>
+                    {n.label}
+                  </div>
                 </div>
-                <div className="menu-label" style={{ fontSize: 28, fontWeight: 900, color: "var(--ink)", letterSpacing: "-0.03em", transition: "color 0.3s" }}>
-                  {n.label}
+                <div style={{ color: "var(--ink-4)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </div>
-                <div style={{ fontSize: 13, color: "var(--ink-3)", marginTop: 4 }}>{n.desc}</div>
-              </div>
-              <div className="menu-arrow" style={{ color: "var(--ink-3)", transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </div>
-            </button>
+              </button>
+              
+              {/* Children Sub-categories - Always Visible */}
+              {n.children && (
+                <div style={{ padding: "8px 32px 12px 32px", display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  {n.children.map((child) => (
+                    <button
+                      key={child.label}
+                      onClick={() => { onClose(); setTimeout(() => scrollTo(child.id, (child as any).path), 350); }}
+                      style={{
+                        padding: "8px 14px",
+                        fontSize: 14,
+                        fontWeight: 700,
+                        color: "var(--ink-2)",
+                        background: "var(--paper-2)",
+                        borderRadius: 10,
+                        transition: "all 0.2s",
+                        border: "1px solid transparent",
+                      }}
+                      onMouseEnter={(e) => { 
+                        e.currentTarget.style.borderColor = "var(--blue-soft)"; 
+                        e.currentTarget.style.color = "var(--blue)";
+                        e.currentTarget.style.background = "var(--blue-bg)";
+                      }}
+                      onMouseLeave={(e) => { 
+                        e.currentTarget.style.borderColor = "transparent"; 
+                        e.currentTarget.style.color = "var(--ink-2)";
+                        e.currentTarget.style.background = "var(--paper-2)";
+                      }}
+                    >
+                      {child.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
@@ -112,7 +145,7 @@ export default function MenuOverlay({ open, onClose }: { open: boolean; onClose:
               padding: "14px 18px", fontSize: 14, fontWeight: 800, borderRadius: "var(--radius-pill)",
               background: "var(--coral)", color: "var(--white)", transition: "all 0.2s" 
             }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79(19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               전화 상담
             </a>
             <a href="https://pf.kakao.com" target="_blank" rel="noopener noreferrer" style={{ 

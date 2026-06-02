@@ -17,11 +17,8 @@ export default function Home() {
   return (
     <LayoutShell>
       <Hero />
-      <About />
-      <Programs />
       <WhyUs />
       <Instructors />
-      <Facility />
       <Process />
       <Reviews />
       <BigCTA />
