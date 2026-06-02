@@ -20,7 +20,14 @@ export default function Footer() {
               alt="띵동 어린이체육교실" 
               style={{ height: 96, marginBottom: 16, display: "block", filter: "brightness(1.05)" }} 
             />
-            <p style={{ fontSize: 14, lineHeight: 1.7, margin: "0 0 24px 0", color: "rgba(255,255,255,0.6)" }}>
+            <p style={{ 
+              fontSize: 16, 
+              lineHeight: 1.7, 
+              margin: "0 0 24px 0", 
+              color: "rgba(255,255,255,0.8)",
+              fontFamily: "HancomMalangMalang, sans-serif",
+              wordBreak: "keep-all"
+            }}>
               아이들의 첫 운동 친구, 띵동 어린이체육교실은<br/>
               안전하고 즐거운 체육 교육을 만들어갑니다.
             </p>

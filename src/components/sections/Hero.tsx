@@ -48,21 +48,23 @@ export default function Hero() {
               lineHeight: 1.1,
               margin: 0,
               color: "var(--ink)",
+              fontFamily: "HancomMalangMalang, sans-serif"
             }}>
               <span style={{ whiteSpace: "nowrap" }}>아이들의 <span style={{ color: "var(--coral)" }}>성장문</span>을 여는</span><br/>
               <span style={{ color: "var(--blue)" }}>즐거운 움직임!</span>
             </h1>
 
             <p style={{
-              fontSize: 18,
+              fontSize: 20,
               lineHeight: 1.6,
               color: "var(--ink-2)",
               marginTop: 24,
               marginBottom: 32,
               maxWidth: 540,
-              fontWeight: 500,
+              fontWeight: 700,
               marginLeft: "auto",
               marginRight: "auto",
+              fontFamily: "HancomMalangMalang, sans-serif"
             }} className="lg:ml-0">
               놀이로 배우고 ㅣ 몸으로 성장하고 ㅣ 마음으로 자라는 시간
             </p>
