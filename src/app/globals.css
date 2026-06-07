@@ -1,5 +1,29 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css");
-@import "tailwindcss";
+
+/* 폰트 정의를 최상단으로 이동 */
+@font-face {
+    font-family: 'CookieRun';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/fonts/cookierun/CookieRunFont_TTF/CookieRun Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    font-weight: 700;
+    font-style: normal;
+    src: url('/fonts/cookierun/CookieRunFont_TTF/CookieRun Bold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    font-weight: 900;
+    font-style: normal;
+    src: url('/fonts/cookierun/CookieRunFont_TTF/CookieRun Black.ttf') format('truetype');
+    font-display: swap;
+}
 
 @font-face {
     font-family: 'HancomMalangMalang';
@@ -15,10 +39,31 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'BaskinRobbinsR';
+    src: url('/fonts/BaskinRobbinsR.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Katuri';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Katuri.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import "tailwindcss";
+
 @theme {
   --font-sans: "Pretendard", ui-sans-serif, system-ui, -apple-system,
     "Apple SD Gothic Neo", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
   --font-malang: "HancomMalangMalang", sans-serif;
+  --font-cookie: "CookieRun", sans-serif;
+  --font-round: "BaskinRobbinsR", sans-serif;
+  --font-katuri: "Katuri", sans-serif;
 }
 
 :root {
@@ -109,6 +154,21 @@ button {
   }
 }
 
+/* Custom Font Utilities */
+.font-cookie {
+    font-family: 'CookieRun', sans-serif !important;
+}
+
+.font-round {
+    font-family: 'BaskinRobbinsR', sans-serif !important;
+    font-weight: 400 !important;
+    letter-spacing: 0;
+}
+
+.font-katuri {
+    font-family: 'Katuri', sans-serif !important;
+}
+
 /* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -140,6 +200,10 @@ button {
   100% { transform: translateX(-50%); }
 }
 
+.animate-float { animation: float 7s ease-in-out infinite; }
+.animate-float-soft { animation: float-soft 5s ease-in-out infinite; }
+.animate-bounce-soft { animation: bounce-soft 1.8s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
 .animate-float { animation: float 7s ease-in-out infinite; }
 .animate-float-soft { animation: float-soft 5s ease-in-out infinite; }
 .animate-bounce-soft { animation: bounce-soft 1.8s ease-in-out infinite; }

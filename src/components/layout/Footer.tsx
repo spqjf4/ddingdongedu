@@ -25,7 +25,7 @@ export default function Footer() {
               lineHeight: 1.7, 
               margin: "0 0 24px 0", 
               color: "rgba(255,255,255,0.8)",
-              fontFamily: "HancomMalangMalang, sans-serif",
+              fontFamily: "var(--font-malang), sans-serif",
               wordBreak: "keep-all"
             }}>
               아이들의 첫 운동 친구, 띵동 어린이체육교실은<br/>
