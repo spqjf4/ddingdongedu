@@ -2,17 +2,62 @@
 
 import React, { useState, useEffect } from 'react';
 
-const sliderImages = [
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1502086223501-7ea24ec39462?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1587280508214-9700ec772ad1?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&q=80&w=1200",
+const programSlides = [
+  {
+    src: "/assets/programs/gross_motor.png",
+    label: "💪 대근육 발달",
+    color: "var(--coral)"
+  },
+  {
+    src: "/assets/programs/gross_motor_2.png",
+    label: "💪 대근육 발달",
+    color: "var(--coral)"
+  },
+  {
+    src: "/assets/programs/fine_motor_1.png",
+    label: "🧩 소근육 발달",
+    color: "var(--blue)"
+  },
+  {
+    src: "/assets/programs/fine_motor_2.png",
+    label: "🧩 소근육 발달",
+    color: "var(--blue)"
+  },
+  {
+    src: "/assets/programs/fine_motor_3.png",
+    label: "🧩 소근육 발달",
+    color: "var(--blue)"
+  },
+  {
+    src: "/assets/programs/air_gear_1.png",
+    label: "🎈 에어교구",
+    color: "var(--yellow)"
+  },
+  {
+    src: "/assets/programs/air_gear_2.png",
+    label: "🎈 에어교구",
+    color: "var(--yellow)"
+  },
+  {
+    src: "/assets/programs/winter_exp.png",
+    label: "⛄ 겨울 체험놀이",
+    color: "var(--blue)"
+  },
+  {
+    src: "/assets/programs/military_exp.png",
+    label: "🪖 병영 체험놀이",
+    color: "#4A5D23" // 국방색 느낌
+  },
+  {
+    src: "/assets/programs/folk_play.png",
+    label: "🪁 민속놀이",
+    color: "var(--coral)"
+  },
+  {
+    src: "/assets/programs/sports.png",
+    label: "⚽ 스포츠",
+    color: "var(--blue)"
+  },
 ];
 
 export default function About() {
@@ -20,8 +65,8 @@ export default function About() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIdx((prev) => (prev + 1) % sliderImages.length);
-    }, 3000);
+      setCurrentIdx((prev) => (prev + 1) % programSlides.length);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -88,13 +133,27 @@ export default function About() {
             <div className="w-full lg:w-[55%] relative group">
               <div className="relative z-10 rounded-[48px] overflow-hidden shadow-2xl transform lg:rotate-2 transition-transform hover:rotate-0 duration-700 bg-[var(--paper)]">
                 <div className="relative w-full aspect-[4/3]">
-                  {sliderImages.map((src, idx) => (
-                    <img
+                  {programSlides.map((slide, idx) => (
+                    <div
                       key={idx}
-                      src={src}
-                      alt={`띵동 유아체육 수업 모습 ${idx + 1}`}
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentIdx ? 'opacity-100' : 'opacity-0'}`}
-                    />
+                      className={`absolute inset-0 w-full h-full transition-opacity duration-1000 bg-[var(--paper-2)] ${idx === currentIdx ? 'opacity-100' : 'opacity-0'}`}
+                    >
+                      <img
+                        src={slide.src}
+                        alt={`띵동 유아체육 수업 모습 ${idx + 1}`}
+                        className="w-full h-full object-contain"
+                      />
+                      
+                      {/* Dynamic Label */}
+                      <div className="absolute top-6 left-6 z-20 animate-bounce-soft">
+                        <div className="bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-[20px] shadow-xl border-2 transform -rotate-2" style={{ borderColor: slide.color }}>
+                          <span className="font-katuri text-xl lg:text-2xl whitespace-nowrap" style={{ color: slide.color }}>
+                            {slide.label}
+                          </span>
+                        </div>
+                        <div className="w-3 h-3 rotate-45 -mt-1.5 ml-5" style={{ backgroundColor: slide.color }}></div>
+                      </div>
+                    </div>
                   ))}
                   
                   {/* Navigation Buttons */}
@@ -102,7 +161,7 @@ export default function About() {
                     <button 
                       onClick={(e) => {
                         e.preventDefault();
-                        setCurrentIdx((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
+                        setCurrentIdx((prev) => (prev - 1 + programSlides.length) % programSlides.length);
                       }}
                       className="w-12 h-12 flex items-center justify-center rounded-full bg-white/30 backdrop-blur-md text-white hover:bg-white/50 transition-colors"
                       aria-label="이전 이미지"
@@ -112,7 +171,7 @@ export default function About() {
                     <button 
                       onClick={(e) => {
                         e.preventDefault();
-                        setCurrentIdx((prev) => (prev + 1) % sliderImages.length);
+                        setCurrentIdx((prev) => (prev + 1) % programSlides.length);
                       }}
                       className="w-12 h-12 flex items-center justify-center rounded-full bg-white/30 backdrop-blur-md text-white hover:bg-white/50 transition-colors"
                       aria-label="다음 이미지"
@@ -127,34 +186,51 @@ export default function About() {
             </div>
           </div>
 
-          {/* Integrated Free Trial CTA - Compact & Balanced Horizontal */}
-          <div className="relative px-8 py-6 lg:px-10 lg:py-8 rounded-[32px] lg:rounded-[40px] bg-[var(--blue)] overflow-hidden shadow-xl mb-16 animate-fade-up">
-            {/* Background elements */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/10 to-transparent pointer-events-none"></div>
-            <div className="absolute -top-16 -right-16 w-64 h-64 bg-[var(--coral)] opacity-25 rounded-full blur-[60px]"></div>
-            <img src="/assets/shapes/dots-2.png" alt="" className="absolute bottom-0 right-0 w-48 opacity-15 pointer-events-none" />
-
-            <div className="relative z-10 container flex flex-col lg:flex-row items-center justify-between gap-8 text-left">
-              <div className="max-w-2xl">
-                <div className="inline-block px-3 py-1 bg-white/20 rounded-full text-[10px] font-black tracking-widest uppercase mb-4 text-white">
-                  Experience First
-                </div>
-                <h3 className="font-katuri text-2xl lg:text-4xl mb-16 leading-tight" style={{ color: "#333333", letterSpacing: "0.02em" }}>
-                  무료 샘플 수업으로 먼저 만나보세요~
-                </h3>
-                <p className="font-round text-base lg:text-lg text-white/85 leading-relaxed break-keep" style={{ letterSpacing: "0.01em" }}>
-                  30분 무료 샘플 수업 후, 우리 아이들에게 맞는지 천천히 결정하세요.
-                </p>
-              </div>
+          {/* Integrated Free Trial CTA - Compact & Visual Impact */}
+          <div className="relative mt-12 group max-w-5xl mx-auto">
+            {/* Outer Glow Decoration */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[var(--blue)] via-[var(--coral)] to-[var(--yellow)] rounded-[32px] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            
+            <div className="relative px-6 py-6 lg:px-12 lg:py-8 rounded-[30px] bg-white border-2 border-[var(--blue-soft)] overflow-hidden shadow-xl">
+              {/* Background Patterns */}
+              <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_90%_10%,var(--blue-bg)_0%,transparent_30%)]"></div>
+              <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_90%,var(--coral-bg)_0%,transparent_30%)] opacity-70"></div>
               
-              <div className="flex-shrink-0">
-                <a
-                  href="tel:010-3046-5546"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--coral)] text-white rounded-full font-black text-xl shadow-lg hover:-translate-y-1 transition-all"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  지금 바로 전화 신청하기
-                </a>
+              <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div className="flex-1 text-center lg:text-left">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--blue-bg)] rounded-full mb-3 transform -rotate-1 shadow-sm border border-[var(--blue-soft)]">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--blue)] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--blue)]"></span>
+                    </span>
+                    <span className="font-katuri text-[var(--blue)] text-[10px] tracking-widest uppercase">Special Experience</span>
+                  </div>
+                  
+                  <h3 className="font-katuri text-2xl lg:text-3xl text-[var(--ink)] mb-3 leading-tight tracking-tight">
+                    백문이 불여일견! <span className="text-[var(--coral)] relative inline-block">
+                      무료 샘플 수업
+                      <svg className="absolute -bottom-1 left-0 w-full h-2 text-[var(--yellow)] opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="currentColor" strokeWidth="4" fill="transparent" strokeLinecap="round" />
+                      </svg>
+                    </span>
+                  </h3>
+                  
+                  <p className="font-round text-base lg:text-lg text-[var(--ink-2)] leading-relaxed break-keep">
+                    <span className="font-black text-[var(--ink)]">30분 무료 샘플 수업</span>으로 아이들의 웃음소리를 먼저 확인하세요!
+                  </p>
+                </div>
+                
+                <div className="flex-shrink-0 relative">
+                  <a
+                    href="tel:010-3046-5546"
+                    className="group/btn relative inline-flex items-center gap-3 px-8 py-4 bg-[var(--blue)] text-white rounded-[24px] font-black shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover/btn:rotate-12 transition-transform">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <span className="text-xl lg:text-2xl">무료 수업 신청하기</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
